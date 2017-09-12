@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ambrosia", "ambrosia.csproj", "{62D08527-1B92-4D75-A38E-0E76A068274E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DDD2FAAD-AB0E-4FBA-BB73-258E48583A63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ambrosia.core", "..\ambrosia.core\ambrosia.core.csproj", "{9BC984AB-BB5E-4AC4-B145-13D291A3E4DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62D08527-1B92-4D75-A38E-0E76A068274E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62D08527-1B92-4D75-A38E-0E76A068274E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62D08527-1B92-4D75-A38E-0E76A068274E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62D08527-1B92-4D75-A38E-0E76A068274E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BC984AB-BB5E-4AC4-B145-13D291A3E4DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BC984AB-BB5E-4AC4-B145-13D291A3E4DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BC984AB-BB5E-4AC4-B145-13D291A3E4DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BC984AB-BB5E-4AC4-B145-13D291A3E4DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{62D08527-1B92-4D75-A38E-0E76A068274E} = {DDD2FAAD-AB0E-4FBA-BB73-258E48583A63}
+		{9BC984AB-BB5E-4AC4-B145-13D291A3E4DE} = {DDD2FAAD-AB0E-4FBA-BB73-258E48583A63}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A6FEB499-DC40-4ECC-9E83-C5369C36E9DF}
+	EndGlobalSection
+EndGlobal
