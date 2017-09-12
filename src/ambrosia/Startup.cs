@@ -1,6 +1,8 @@
+using ambrosia.core.Models.Contexts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -44,7 +46,7 @@ namespace ambrosia
                 app.UseDeveloperExceptionPage();
                 app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
                 {
-                    HotModuleReplacement = true
+                    HotModuleReplacement = true,
                 });
             }
             else
@@ -77,6 +79,11 @@ namespace ambrosia
         /// </summary>
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<RecipeContext>(options =>
+            {
+                options.UseNpgsql("ConnectionString", o => o.MigrationsAssembly("ambrosia.core"));
+            });
+
             services.AddMvc();
 
             services.AddSwaggerGen(c =>
