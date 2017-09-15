@@ -10,7 +10,7 @@ using System;
 
 namespace Ambrosia.Data.Migrations
 {
-    [DbContext(typeof(RecipeContext))]
+    [DbContext(typeof(AmbrosiaContext))]
     [Migration("20170915065109_InitialCreate")]
     partial class InitialCreate
     {

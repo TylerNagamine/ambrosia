@@ -80,7 +80,7 @@ namespace Ambrosia
         /// </summary>
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<RecipeContext>(options =>
+            services.AddDbContext<AmbrosiaContext>(options =>
             {
                 options.UseNpgsql(Configuration.GetConnectionString("ambrosia"), o => o.MigrationsAssembly("Ambrosia.Data"));
             });
