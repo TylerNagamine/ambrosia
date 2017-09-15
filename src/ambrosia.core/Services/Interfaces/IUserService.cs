@@ -9,5 +9,7 @@ namespace Ambrosia.Core.Services
         Task<UserDto> AddUser(UserDto toAdd);
 
         Task<UserDto> GetUser(Guid id);
+
+        Task<UserDto[]> GetUsers();
     }
 }

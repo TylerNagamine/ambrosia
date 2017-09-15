@@ -41,5 +41,14 @@ namespace Ambrosia.Core.Services
 
             return dto;
         }
+
+        public async Task<UserDto[]> GetUsers()
+        {
+            var users = await _context.Users.ToArrayAsync();
+
+            var dto = _mapper.Map<User[], UserDto[]>(users);
+
+            return dto;
+        }
     }
 }

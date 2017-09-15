@@ -19,7 +19,7 @@ namespace Ambrosia.Controllers.Api
 
         [HttpPost]
         [SwaggerResponse(200, typeof(UserDto), "Succes. Returns the created user.")]
-        [SwaggerResponse(400, typeof(UserDto), "Bad request.")]
+        [SwaggerResponse(400, typeof(void), "Bad request.")]
         public async Task<IActionResult> AddUser([FromBody] UserDto toCreate)
         {
             if (toCreate == null)
@@ -34,8 +34,8 @@ namespace Ambrosia.Controllers.Api
 
         [HttpGet("{userId}")]
         [SwaggerResponse(200, typeof(UserDto), "Succes. Returns the created user.")]
-        [SwaggerResponse(400, typeof(UserDto), "Bad request.")]
-        [SwaggerResponse(404, typeof(UserDto), "User with the specified Id not found.")]
+        [SwaggerResponse(400, typeof(void), "Bad request.")]
+        [SwaggerResponse(404, typeof(void), "User with the specified Id not found.")]
         public async Task<IActionResult> GetUser([FromRoute] Guid userId)
         {
             if (userId == Guid.Empty)
@@ -51,6 +51,16 @@ namespace Ambrosia.Controllers.Api
             }
 
             return Ok(retrievedUser);
+        }
+
+        [HttpGet]
+        [SwaggerResponse(200, typeof(UserDto[]), "Succes. Returns a list of users.")]
+        [SwaggerResponse(400, typeof(void), "Bad request.")]
+        public async Task<IActionResult> GetUsers()
+        {
+            var users = await _userService.GetUsers();
+
+            return Ok(users);
         }
     }
 }
