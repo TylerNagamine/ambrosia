@@ -6,6 +6,8 @@ namespace Ambrosia.Core.Services
 {
     public interface IUserService
     {
+        Task<UserDto> AddUser(UserDto toAdd);
+
         Task<UserDto> GetUser(Guid id);
     }
 }

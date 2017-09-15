@@ -1,4 +1,7 @@
+using Ambrosia.Core.Mapper;
+using Ambrosia.Core.Services;
 using Ambrosia.Data.Models.Contexts;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
@@ -84,6 +87,11 @@ namespace Ambrosia
             {
                 options.UseNpgsql(Configuration.GetConnectionString("ambrosia"), o => o.MigrationsAssembly("Ambrosia.Data"));
             });
+
+            var mapper = MapperFactory.Create();
+            services.AddSingleton(mapper);
+
+            services.AddScoped<IUserService, UserService>();
 
             services.AddMvc()
                 .AddJsonOptions(c => c.SerializerSettings.Converters.Add(new StringEnumConverter()));

@@ -12,8 +12,4 @@
     <ProjectReference Include="..\ambrosia.data\Ambrosia.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Mapper\" />
-  </ItemGroup>
-
 </Project>

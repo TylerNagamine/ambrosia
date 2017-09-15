@@ -21,6 +21,18 @@ namespace Ambrosia.Core.Services
             _context = context;
         }
 
+        public async Task<UserDto> AddUser(UserDto toAdd)
+        {
+            var userEntity = _mapper.Map<UserDto, User>(toAdd);
+
+            userEntity.Id = Guid.NewGuid();
+
+            await _context.Users.AddAsync(userEntity);
+            await _context.SaveChangesAsync();
+
+            return toAdd;
+        }
+
         public async Task<UserDto> GetUser(Guid id)
         {
             var retrievedUser = await _context.Users.SingleOrDefaultAsync(u => u.Id == id);
