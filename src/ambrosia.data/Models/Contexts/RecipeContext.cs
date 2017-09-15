@@ -1,10 +1,8 @@
-﻿using ambrosia.core.Models.Internal;
+﻿using Ambrosia.Data.Models.Internal;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Microsoft.EntityFrameworkCore.Design;
 
-namespace ambrosia.core.Models.Contexts
+namespace Ambrosia.Data.Models.Contexts
 {
     public class RecipeContext : DbContext
     {
@@ -14,5 +12,7 @@ namespace ambrosia.core.Models.Contexts
         }
 
         public DbSet<Recipe> Recipes { get; set; }
+
+        public DbSet<Ingredient> Ingredients { get; set; }
     }
 }

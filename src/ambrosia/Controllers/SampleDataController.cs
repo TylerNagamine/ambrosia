@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ambrosia.Controllers
+namespace Ambrosia.Controllers
 {
     /// <summary>
     /// Sample data api controller.

@@ -1,4 +1,4 @@
-using ambrosia.core.Models.Contexts;
+using Ambrosia.Data.Models.Contexts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
@@ -7,10 +7,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.PlatformAbstractions;
+using Newtonsoft.Json.Converters;
 using Swashbuckle.AspNetCore.Swagger;
 using System.IO;
 
-namespace ambrosia
+namespace Ambrosia
 {
     /// <summary>
     /// ambrosia setup class.
@@ -81,16 +82,15 @@ namespace ambrosia
         {
             services.AddDbContext<RecipeContext>(options =>
             {
-                options.UseNpgsql("ConnectionString", o => o.MigrationsAssembly("ambrosia.core"));
+                options.UseNpgsql(Configuration.GetConnectionString("ambrosia"), o => o.MigrationsAssembly("Ambrosia.Data"));
             });
 
-            services.AddMvc();
+            services.AddMvc()
+                .AddJsonOptions(c => c.SerializerSettings.Converters.Add(new StringEnumConverter()));
 
             services.AddSwaggerGen(c =>
             {
                 c.DescribeAllEnumsAsStrings();
-                c.DescribeAllParametersInCamelCase();
-                c.DescribeStringEnumsInCamelCase();
 
                 var xmlPath = Path.Combine(PlatformServices.Default.Application.ApplicationBasePath, "ambrosia.xml");
                 if (File.Exists(xmlPath))
