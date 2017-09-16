@@ -5,8 +5,9 @@ import { UserDto } from '../../models/Ambrosia';
 
 @Component({
     components: {
-        UserListComponent: require('../userlist/userlist.vue'),
+        UserEditorComponent: require('../usereditor/usereditor.vue'),
         UserDetailComponent: require('../userdetail/userdetail.vue'),
+        UserListComponent: require('../userlist/userlist.vue'),
     }
 })
 export default class UserAdminComponent extends Vue {

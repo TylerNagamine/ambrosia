@@ -7,6 +7,8 @@
         <div v-if="Object.keys(selectedUser).length">
             <UserDetailComponent :user="selectedUser"></UserDetailComponent>
         </div>
+
+        <UserEditorComponent :initialModel="selectedUser" />
     </div>
 </template>
 
