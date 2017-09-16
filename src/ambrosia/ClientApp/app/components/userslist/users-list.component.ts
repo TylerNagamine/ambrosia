@@ -10,8 +10,8 @@ import { UserDto } from '../../../models/Ambrosia';
 export class UsersListComponent {
     public users: UserDto[];
 
-    constructor(private http: Http,
-        @Inject('BASE_URL') private baseUrl: string) {
+    constructor(@Inject('BASE_URL') private baseUrl: string,
+        private http: Http) {
         this.getUsers();
     }
 

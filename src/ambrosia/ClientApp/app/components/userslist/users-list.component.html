@@ -13,10 +13,10 @@
     </thead>
     <tbody>
         <tr *ngFor="let user of users">
-            <td>{{ user.id }}</td>
+            <td><a [routerLink]="['/users', user.id]">{{ user.id }}</a></td>
             <td>{{ user.userName }}</td>
             <td>{{ user.emailAddress }}</td>
-            <td>{{ user.role.toString() }}</td>
+            <td>{{ user.role }}</td>
         </tr>
     </tbody>
 </table>

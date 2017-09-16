@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
@@ -11,6 +11,7 @@ import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 
 import { UsersListComponent } from './components/userslist/users-list.component';
+import { UserDetailComponent } from './components/userdetail/user-detail.component';
 
 @NgModule({
     declarations: [
@@ -19,18 +20,20 @@ import { UsersListComponent } from './components/userslist/users-list.component'
         CounterComponent,
         FetchDataComponent,
         HomeComponent,
-        UsersListComponent
+        UsersListComponent,
+        UserDetailComponent
     ],
     imports: [
         CommonModule,
         HttpModule,
-        FormsModule,
+        ReactiveFormsModule,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'users', component: UsersListComponent },
+            { path: 'users/:id', component: UserDetailComponent },
             { path: '**', redirectTo: 'home' },
         ])
     ]
