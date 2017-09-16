@@ -8,6 +8,8 @@
             <select class="form-control" v-model="model.role">
                 <option v-for="role in roleOptions" :key="role" v-bind:value="role">{{ role }}</option>
             </select>
+
+            <button @click="handleClick">Submit</button>
         </div>
     </div>
 </template>

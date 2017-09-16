@@ -50,5 +50,15 @@ namespace Ambrosia.Core.Services
 
             return dto;
         }
+
+        public async Task<UserDto> UpdateUser(UserDto toUpdate)
+        {
+            var userEntity = _mapper.Map<UserDto, User>(toUpdate);
+
+            _context.Update(userEntity);
+            await _context.SaveChangesAsync();
+
+            return toUpdate;
+        }
     }
 }

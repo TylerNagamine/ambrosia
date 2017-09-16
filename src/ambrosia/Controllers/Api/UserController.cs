@@ -62,5 +62,14 @@ namespace Ambrosia.Controllers.Api
 
             return Ok(users);
         }
+
+        [HttpPut]
+        [SwaggerResponse(200, typeof(UserDto), "Succes. Returns a list of users.")]
+        public async Task<IActionResult> UpdateUser([FromBody] UserDto user)
+        {
+            var updatedUser = await _userService.UpdateUser(user);
+
+            return Ok(updatedUser);
+        }
     }
 }

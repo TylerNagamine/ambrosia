@@ -4,11 +4,11 @@
 
         <UserListComponent :users="usersList" v-on:clicked="setSelectedUser"></UserListComponent>
 
-        <div v-if="Object.keys(selectedUser).length">
+        <div v-if="userSelected">
             <UserDetailComponent :user="selectedUser"></UserDetailComponent>
-        </div>
 
-        <UserEditorComponent :initialModel="selectedUser" />
+            <UserEditorComponent :initialModel="selectedUser" @submit="submit" />
+        </div>
     </div>
 </template>
 

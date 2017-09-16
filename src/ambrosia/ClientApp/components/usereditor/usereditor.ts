@@ -19,6 +19,10 @@ export default class UserEditorComponent extends Vue {
         };
     }
 
+    private handleClick() {
+        this.$emit('submit', this.model);
+    }
+
     get roleOptions() {
         var options: string[] = [];
 
