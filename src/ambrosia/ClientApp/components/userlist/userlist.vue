@@ -1,12 +1,5 @@
 <template>
     <div>
-        <h1>Users</h1>
-
-        <p>
-            This component demonstrates fetching data from the server
-            and displaying it on the client
-        </p>
-
         <table v-if="users.length" class="table">
             <thead>
                 <tr>
@@ -17,7 +10,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="user in users" v-bind:key="user.id">
+                <tr v-for="user in users" :key="user.id" @click="handleClick(user)">
                     <td>{{ user.id }}</td>
                     <td>{{ user.userName }}</td>
                     <td>{{ user.emailAddress }}</td>

@@ -1,20 +1,16 @@
 import Vue from 'vue';
-import { Component } from 'vue-property-decorator';
+import { Component, Prop } from 'vue-property-decorator';
 
 import { UserDto } from '../../models/Ambrosia';
 
 @Component({
-    el: '#user-list',
-    props: ['users']
+    name: 'user-list',
 })
 export default class UserListComponent extends Vue {
-    users: UserDto[] = [];
+    @Prop({ default: [] })
+    users: UserDto[];
 
-    async mounted() {
-        const response = await fetch('api/user');
-
-        const users: UserDto[] = await response.json();
-
-        this.users = users;
+    private handleClick(user: UserDto): void {
+        this.$emit('clicked', user);
     }
 }
