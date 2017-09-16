@@ -6,6 +6,8 @@
 //----------------------
 // ReSharper disable InconsistentNaming
 
+import * as moment from 'moment';
+
 
 /** Class representing a weather forecast. */
 export interface WeatherForecast {
