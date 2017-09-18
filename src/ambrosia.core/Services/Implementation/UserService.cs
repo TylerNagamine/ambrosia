@@ -27,10 +27,28 @@ namespace Ambrosia.Core.Services
 
             userEntity.Id = Guid.NewGuid();
 
-            await _context.Users.AddAsync(userEntity);
+            var entityEntry = await _context.Users.AddAsync(userEntity);
             await _context.SaveChangesAsync();
 
-            return toAdd;
+            var addedUser = entityEntry.Entity;
+
+            var mapped = _mapper.Map<User, UserDto>(addedUser);
+
+            return mapped;
+        }
+
+        public async Task DeleteUser(Guid id)
+        {
+            var retrievedUser = await _context.Users.SingleOrDefaultAsync(u => u.Id == id);
+
+            if (retrievedUser == null)
+            {
+                throw new InvalidOperationException();
+            }
+
+            _context.Users.Remove(retrievedUser);
+
+            await _context.SaveChangesAsync();
         }
 
         public async Task<UserDto> GetUser(Guid id)

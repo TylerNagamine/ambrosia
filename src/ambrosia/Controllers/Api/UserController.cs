@@ -63,6 +63,21 @@ namespace Ambrosia.Controllers.Api
             return Ok(users);
         }
 
+        [HttpDelete("{userId}")]
+        [SwaggerResponse(200, typeof(UserDto), "Succes. Returns the created user.")]
+        [SwaggerResponse(400, typeof(void), "Bad request.")]
+        public async Task<IActionResult> RemoveUser([FromRoute] Guid userId)
+        {
+            if (userId == Guid.Empty)
+            {
+                return BadRequest();
+            }
+
+            await _userService.DeleteUser(userId);
+
+            return NoContent();
+        }
+
         [HttpPut]
         [SwaggerResponse(200, typeof(UserDto), "Succes. Returns a list of users.")]
         public async Task<IActionResult> UpdateUser([FromBody] UserDto user)

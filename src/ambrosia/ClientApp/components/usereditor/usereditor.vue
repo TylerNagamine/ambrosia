@@ -1,6 +1,6 @@
 <template>
     <div class="panel panel-default" style="padding: 10px">
-        <h1>User Editor</h1>
+        <h1>{{ title }}</h1>
 
         <div class="form-group">
             <input class="form-control" v-model="model.userName" placeholder="Username">

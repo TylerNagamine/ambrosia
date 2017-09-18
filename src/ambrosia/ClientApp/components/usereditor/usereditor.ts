@@ -7,8 +7,11 @@ import { UserDto, UserDtoRole } from '../../models/Ambrosia';
     name: 'user-editor'
 })
 export default class UserEditorComponent extends Vue {
-    @Prop({ default: {} })
+    @Prop({ default: () => {} })
     initialModel: UserDto;
+
+    @Prop({ default: 'User Editor' })
+    title: string;
 
     model: UserDto = {};
 
