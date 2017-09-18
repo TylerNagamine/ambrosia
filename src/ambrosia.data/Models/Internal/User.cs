@@ -11,7 +11,7 @@ namespace Ambrosia.Data.Models.Internal
 
         public string Password { get; set; }
 
-        public AccountRole? Roles { get; set; }
+        public AccountRole? Role { get; set; }
 
         public string UserName { get; set; }
     }

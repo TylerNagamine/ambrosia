@@ -12,9 +12,10 @@ using System;
 namespace Ambrosia.Data.Migrations
 {
     [DbContext(typeof(AmbrosiaContext))]
-    partial class RecipeContextModelSnapshot : ModelSnapshot
+    [Migration("20170916055635_ChangeField")]
+    partial class ChangeField
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
