@@ -9,8 +9,8 @@ Vue.use(VueRouter);
 
 const routes = [
     { path: '/', component: require('./components/home/home.vue') },
-    { path: '/counter', component: require('./components/counter/counter.vue') },
-    { path: '/fetchdata', component: require('./components/fetchdata/fetchdata.vue') },
+    { path: '/counter', component: (resolve: any) => require(['./components/counter/counter.vue'], resolve) },
+    { path: '/fetchdata', component: (resolve: any) => require(['./components/fetchdata/fetchdata.vue'], resolve) },
     { path: '/users', component: require('./components/useradmin/useradmin.vue') },
 ];
 

@@ -11,6 +11,7 @@ module.exports = (env) => {
         resolve: { extensions: [ '.js' ] },
         entry: {
             vendor: [
+                'axios',
                 'bootstrap',
                 'bootstrap/dist/css/bootstrap.css',
                 'event-source-polyfill',

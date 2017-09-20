@@ -7,9 +7,11 @@
     "webpack-prod": "webpack -p --env.prod --config webpack.config.vendor.js --progress && webpack -p --env.prod --config webpack.config.js --progress"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/webpack-env": "^1.13.0",
     "aspnet-webpack": "^2.0.1",
     "awesome-typescript-loader": "^3.2.3",
+    "axios": "^0.16.2",
     "bootstrap": "^3.3.6",
     "css-loader": "^0.25.0",
     "event-source-polyfill": "^0.0.9",
