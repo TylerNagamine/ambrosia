@@ -1,5 +1,6 @@
 export enum UserAction {
-    AddUser = 'AddUser',
-    UpdateUser = 'UpdateUser',
-    GetUsers = 'GetUser',
+    AddUser = 'addUser',
+    DeleteUser = 'deleteUser',
+    GetUsers = 'getUsers',
+    UpdateUser = 'updateUser',
 }

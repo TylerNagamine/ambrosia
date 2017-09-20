@@ -3,7 +3,7 @@
         <h1>User management</h1>
 
         <button class="btn btn-primary" @click="showModal = true">Add user</button>
-        <UserListComponent :users="usersList" v-on:clicked="setSelectedUser" :allowDelete="canDelete" @delete="deleteUser" />
+        <UserListComponent :users="userState.users" v-on:clicked="setSelectedUser" :allowDelete="canDelete" @delete="deleteUserAction" />
 
         <div v-if="userSelected">
             <UserDetailComponent :user="selectedUser"></UserDetailComponent>

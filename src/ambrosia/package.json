@@ -2,6 +2,10 @@
   "name": "ambrosia",
   "private": true,
   "version": "0.0.0",
+  "scripts": {
+    "webpack-dev": "webpack --config webpack.config.vendor.js --progress && webpack --config webpack.config.js --progress",
+    "webpack-prod": "webpack -p --env.prod --config webpack.config.vendor.js --progress && webpack -p --env.prod --config webpack.config.js --progress"
+  },
   "devDependencies": {
     "@types/webpack-env": "^1.13.0",
     "aspnet-webpack": "^2.0.1",
@@ -18,6 +22,7 @@
     "url-loader": "^0.5.7",
     "vue": "^2.4.4",
     "vuex": "^2.4.0",
+    "vuex-class": "^0.2.0",
     "vue-loader": "^11.1.4",
     "vue-property-decorator": "^5.3.0",
     "vue-router": "^2.7.0",

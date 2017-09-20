@@ -10,13 +10,13 @@ const store = new Vuex.Store<State>({
     strict: true,
     state: initialState,
     modules: {
-        user: UserModule.module,
+        user: UserModule.default,
     },
 });
 
 if (module.hot) {
     module.hot.accept(['./user'], () => {
-        const newModules = require<typeof UserModule>('./user').module;
+        const newModules = require<typeof UserModule>('./user').default;
 
         store.hotUpdate({
             modules: {
@@ -25,3 +25,5 @@ if (module.hot) {
         })
     });
 }
+
+export default store;

@@ -8,4 +8,4 @@ export const initialState: State = {
     user: {
         users: [],
     },
-},
+};
