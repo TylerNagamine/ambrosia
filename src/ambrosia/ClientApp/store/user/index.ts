@@ -8,8 +8,8 @@ import { State } from '../state';
 export { UserAction } from './mutation-types';
 export { UserState };
 
-export default <Module<UserState, State>>{
+export default <Module<UserState, State>> {
     actions: actions,
     mutations: mutations,
     state: initialState,
-}
+};

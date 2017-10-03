@@ -12,6 +12,7 @@ const routes = [
     { path: '/counter', component: (resolve: any) => require(['./components/counter/counter.vue'], resolve) },
     { path: '/fetchdata', component: (resolve: any) => require(['./components/fetchdata/fetchdata.vue'], resolve) },
     { path: '/users', component: require('./components/useradmin/useradmin.vue') },
+    { path: '/recipes', component: require('./components/recipeadmin/recipeadmin.vue') },
 ];
 
 new Vue({

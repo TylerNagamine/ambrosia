@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { Component, Prop } from 'vue-property-decorator';
+import { Component, Prop, Watch } from 'vue-property-decorator';
 
 import { UserDto, UserDtoRole } from '../../models/Ambrosia';
 
@@ -16,9 +16,14 @@ export default class UserEditorComponent extends Vue {
     model: UserDto = {};
 
     mounted() {
+        this.handleModelChange(this.initialModel, undefined);
+    }
+
+    @Watch('initialModel')
+    handleModelChange(newModel: UserDto | undefined, oldModel: UserDto | undefined) {
         this.model = {
             role: UserDtoRole.User,
-            ...this.initialModel,
+            ...newModel,
         };
     }
 

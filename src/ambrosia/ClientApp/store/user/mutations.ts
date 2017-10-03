@@ -29,4 +29,4 @@ export const mutations: MutationTree<UserState> = {
     deleteUser,
     getUsers,
     updateUser,
-}
+};
