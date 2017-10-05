@@ -8,6 +8,9 @@
 
             <label>Description</label>
             <textarea class="form-control" v-model="description" placeholder="Description" />
+
+            <label>Cook time</label>
+            <input class="form-control" v-model="cookTime" placeholder="Cook time" />
         </div>
 
         <div class="form-group">

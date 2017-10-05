@@ -37,8 +37,11 @@ export default class RecipeFormComponent extends Vue {
     get description(){ return this.formState.description; };
     set description(value: string) { this.editDescription(value); };
 
-    get recipeName() { return this.formState.name || 'My Recipe' };
-    set recipeName(value: string) { this.editName(value) };
+    get recipeName() { return this.formState.name || 'My Recipe'; };
+    set recipeName(value: string) { this.editName(value); };
+
+    get cookTime() { return this.formState.cookTime || 0; };
+    set cookTime(value: number) { this.editCookTime(value); };
 
     get steps() {
         return this.formState.steps;

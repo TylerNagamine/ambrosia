@@ -101,9 +101,15 @@ namespace Ambrosia
                 c.DescribeAllEnumsAsStrings();
 
                 var xmlPath = Path.Combine(PlatformServices.Default.Application.ApplicationBasePath, "ambrosia.xml");
+                var coreXmlPath = Path.Combine(PlatformServices.Default.Application.ApplicationBasePath, "Ambrosia.Core.xml");
+
                 if (File.Exists(xmlPath))
                 {
                     c.IncludeXmlComments(xmlPath);
+                }
+                if (File.Exists(coreXmlPath))
+                {
+                    c.IncludeXmlComments(coreXmlPath);
                 }
 
                 c.SwaggerDoc("v1", new Info
