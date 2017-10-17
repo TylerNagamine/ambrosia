@@ -33,6 +33,11 @@
                             <span class="glyphicon glyphicon-user"></span> Users
                         </router-link>
                     </li>
+                    <li>
+                        <router-link to='/recipes'>
+                            <span class='glyphicon glyphicon-menu-hamburger'></span> Recipes
+                        </router-link>
+                    </li>
                 </ul>
             </div>
         </div>

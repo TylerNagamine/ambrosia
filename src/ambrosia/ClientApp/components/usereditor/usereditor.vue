@@ -6,7 +6,7 @@
             <input class="form-control" v-model="model.userName" placeholder="Username">
             <input class="form-control" v-model="model.emailAddress" placeholder="Email address">
             <select class="form-control" v-model="model.role">
-                <option v-for="role in roleOptions" :key="role" v-bind:value="role">{{ role }}</option>
+                <option v-for="role in roleOptions" :key="role">{{ role }}</option>
             </select>
 
             <button @click="handleClick">Submit</button>
