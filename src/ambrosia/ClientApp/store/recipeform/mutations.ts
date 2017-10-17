@@ -17,18 +17,25 @@ function editDescription(state: RecipeFormState, description: string): void {
     state.description = description;
 }
 
-function editCookTime(state: RecipeFormState, time: number): void {
-    state.cookTime = time;
+function editCookTime(state: RecipeFormState, time: string): void {
+    const parsed = Number.parseInt(time, 10);
+    
+    state.cookTime = Number.isNaN(parsed)
+        ? state.cookTime || 0
+        : parsed;
 }
 
-function editPrepTime(state: RecipeFormState, time: number): void {
-    state.preparationTime = time;
+function editPrepTime(state: RecipeFormState, time: string): void {
+    const parsed = Number.parseInt(time, 10);
+    
+    state.preparationTime = Number.isNaN(parsed)
+        ? state.preparationTime || 0
+        : parsed;
 }
 
 function addStep(state: RecipeFormState): void {
     state.steps.push('');
 }
-
 
 function editStep(state: RecipeFormState, action: IndexedAction<string>): void {
     Vue.set(state.steps, action.index, action.payload);

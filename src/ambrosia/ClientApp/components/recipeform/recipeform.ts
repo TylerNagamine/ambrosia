@@ -18,7 +18,7 @@ export default class RecipeFormComponent extends Vue {
     @Mutation(RecipeFormMutation.AddStep)
     addStep: () => void;
     @Mutation(RecipeFormMutation.EditCookTime)
-    editCookTime: (t: number) => void;
+    editCookTime: (t: string) => void;
     @Mutation(RecipeFormMutation.EditDescription)
     editDescription: (d: string) => void;
     @Mutation(RecipeFormMutation.EditIngredient)
@@ -26,7 +26,7 @@ export default class RecipeFormComponent extends Vue {
     @Mutation(RecipeFormMutation.EditName)
     editName: (t: string) => void;
     @Mutation(RecipeFormMutation.EditPrepTime)
-    editPrepTime: (t: number) => void;
+    editPrepTime: (t: string) => void;
     @Mutation(RecipeFormMutation.EditStep)
     editStep: (t: IndexedAction<string>) => void;
     @Mutation(RecipeFormMutation.RemoveIngredient)
@@ -37,11 +37,20 @@ export default class RecipeFormComponent extends Vue {
     get description(){ return this.formState.description; };
     set description(value: string) { this.editDescription(value); };
 
-    get recipeName() { return this.formState.name || 'My Recipe'; };
+    get recipeDisplayName() { return this.formState.name || 'My Recipe' };
+    get recipeName() { return this.formState.name; };
     set recipeName(value: string) { this.editName(value); };
 
-    get cookTime() { return this.formState.cookTime || 0; };
-    set cookTime(value: number) { this.editCookTime(value); };
+    get totalTime() { 
+        return (this.formState.cookTime || 0) + 
+            (this.formState.preparationTime || 0);
+    };
+
+    get cookTime() { return (this.formState.cookTime || 0).toString(); };
+    set cookTime(value: string) { this.editCookTime(value); };
+
+    get prepTime() { return (this.formState.preparationTime || 0).toString() };
+    set prepTime(value: string) { this.editPrepTime(value); };
 
     get steps() {
         return this.formState.steps;

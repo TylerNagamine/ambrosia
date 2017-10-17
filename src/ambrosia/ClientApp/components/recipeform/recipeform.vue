@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Edit {{ recipeName }}</h1>
+        <h1>Edit {{ recipeDisplayName }}</h1>
 
         <div class="form-group">
             <label>Name</label>
@@ -9,8 +9,22 @@
             <label>Description</label>
             <textarea class="form-control" v-model="description" placeholder="Description" />
 
+            <label>Total time</label>
+            <div>{{ totalTime }}</div>
+
             <label>Cook time</label>
-            <input class="form-control" v-model="cookTime" placeholder="Cook time" />
+            <input
+                class="form-control"
+                v-model="cookTime"
+                placeholder="Cook time"
+                type="number" />
+
+            <label>Prep time</label>
+            <input
+                class="form-control"
+                v-model="prepTime"
+                placeholder="Prep time"
+                type="number" />
         </div>
 
         <div class="form-group">
