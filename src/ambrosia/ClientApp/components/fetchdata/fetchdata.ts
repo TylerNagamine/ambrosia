@@ -1,5 +1,4 @@
 import Vue from 'vue';
-import { Component } from 'vue-property-decorator';
 
 interface WeatherForecast {
     dateFormatted: string;
@@ -8,15 +7,17 @@ interface WeatherForecast {
     summary: string;
 }
 
-@Component
-export default class FetchDataComponent extends Vue {
-    forecasts: WeatherForecast[] = [];
-
+export default Vue.extend({
+    data() {
+        return {
+            forecasts: [] as WeatherForecast[],
+        };
+    },
     mounted() {
         fetch('api/SampleData/WeatherForecasts')
-            .then(response => response.json() as Promise<WeatherForecast[]>)
-            .then(data => {
-                this.forecasts = data;
-            });
-    }
-}
+        .then(response => response.json() as Promise<WeatherForecast[]>)
+        .then(data => {
+            this.forecasts = data;
+        });
+    },
+});

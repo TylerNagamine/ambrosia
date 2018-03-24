@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 
 module.exports = (env) => {
     const isDevBuild = !(env && env.prod);
@@ -12,12 +13,11 @@ module.exports = (env) => {
         entry: {
             vendor: [
                 'axios',
-                'bootstrap',
-                'bootstrap/dist/css/bootstrap.css',
+                'element-ui',
                 'event-source-polyfill',
                 'moment',
-                'jquery',
                 'vue',
+                'vuex',
                 'vue-router'
             ],
         },
@@ -35,7 +35,7 @@ module.exports = (env) => {
         },
         plugins: [
             extractCSS,
-            new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery' }), // Maps these identifiers to the jQuery package (because Bootstrap expects it to be a global variable)
+            new MomentLocalesPlugin({ localesToKeep: ['en'] }),
             new webpack.DefinePlugin({
                 'process.env.NODE_ENV': isDevBuild ? '"development"' : '"production"'
             }),

@@ -1,61 +1,38 @@
 import Vue from 'vue';
-import { Component } from 'vue-property-decorator';
-import { Action, State } from 'vuex-class';
-
 import { UserAction, UserState } from '../../store/user';
 import { UserDto } from '../../models/Ambrosia';
 
-@Component({
-    components: {
-        UserEditorComponent: require('../usereditor/usereditor.vue'),
-        UserDetailComponent: require('../userdetail/userdetail.vue'),
-        UserListComponent: require('../userlist/userlist.vue'),
-    }
-})
-export default class UserAdminComponent extends Vue {
-    showModal = false;
-    selectedUser: UserDto = {};
+export default Vue.extend({
+    data() {
+        return {
+            showModal: false,
+            selectedUser: {} as UserDto,
+        };
+    },
+    computed: {
+        users: function() {
+            return this.$appStore.state.user.users;
+        },
+        userSelected: function() {
+            return Object.keys(this.selectedUser).length;
+        },
+    },
+    methods: {
+        addUser: async function(model: UserDto) {
+            await this.$appStore.dispatch(UserAction.AddUser, model);
 
-    @State('user')
-    userState: UserState;
+            this.showModal = false;
+        },
+        setSelectedUser: function(user: UserDto) {
+            this.selectedUser = user;
+        },
+        submit: async function(model: UserDto) {
+            this.selectedUser = {};
 
-    @Action(UserAction.DeleteUser)
-    deleteUserAction: (u: UserDto) => Promise<void>;
-
-    @Action(UserAction.GetUsers)
-    getUsersAction: () => Promise<void>;
-
-    @Action(UserAction.UpdateUser)
-    updateUser: (u: UserDto) => Promise<void>;
-
-    @Action(UserAction.AddUser)
-    addUserAction: (u: UserDto) => Promise<void>;
-
+            await this.$appStore.dispatch(UserAction.UpdateUser, model);
+        },
+    },
     async mounted() {
-        await this.getUsersAction();
+        await this.$appStore.dispatch(UserAction.GetUsers);
     }
-
-    public async addUser(model: UserDto) {
-        await this.addUserAction(model);
-
-        this.showModal = false;
-    }
-
-    public async submit(model: UserDto) {
-        this.selectedUser = {};
-
-        await this.updateUser(model);
-    }
-
-    get canDelete() {
-        return true;
-    }
-
-    get userSelected() {
-        return Object.keys(this.selectedUser).length;
-    }
-    
-    private setSelectedUser(user: UserDto): void {
-        this.selectedUser = user;
-    }
-}
+});

@@ -1,11 +1,14 @@
 import Vue from 'vue';
-import { Component } from 'vue-property-decorator';
 
-@Component
-export default class CounterComponent extends Vue {
-    currentcount: number = 0;
-
-    incrementCounter() {
-        this.currentcount++;
-    }
-}
+export default Vue.extend({
+    data() {
+        return {
+            currentcount: 0,
+        };
+    },
+    methods: {
+        incrementCounter(): void {
+            this.currentcount++;
+        },
+    },
+});

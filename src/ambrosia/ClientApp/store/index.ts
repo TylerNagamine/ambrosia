@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Vuex from 'vuex';
+import Vuex, { Store } from 'vuex';
 
 import { initialState, State } from './state';
 import * as RecipeFormModule from './recipeform';
@@ -29,5 +29,17 @@ if (module.hot) {
         })
     });
 }
+
+declare module "vue/types/vue" {
+    interface Vue {
+      $appStore: Store<State>;
+    }
+  }
+
+Object.defineProperty(Vue.prototype, '$appStore', {
+    get: function(): Store<any> {
+        return (<Vue>this).$store;
+    },
+});
 
 export default store;

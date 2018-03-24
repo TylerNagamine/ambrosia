@@ -1,12 +1,8 @@
 import Vue from 'vue';
-import { Component, Prop } from 'vue-property-decorator';
 
 import { UserDto } from '../../models/Ambrosia';
 
-@Component({
+export default Vue.extend({
+    props: ['user'],
     name: 'user-detail',
-})
-export default class UserDetailComponent extends Vue {
-    @Prop({ default: {} })
-    user: UserDto;
-}
+});

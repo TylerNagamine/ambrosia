@@ -1,25 +1,28 @@
 import Vue from 'vue';
-import { Component, Prop } from 'vue-property-decorator';
 
 import { UserDto } from '../../models/Ambrosia';
 
-@Component({
+export default Vue.extend({
     name: 'user-list',
-})
-export default class UserListComponent extends Vue {
-    @Prop({ default: [] })
-    users: UserDto[];
-
-    @Prop({ default: false })
-    allowDelete: boolean;
-
-    private handleClick(user: UserDto): void {
-        this.$emit('clicked', user);
-    }
-
-    private deleteUser(user: UserDto): void {
-        if (this.allowDelete) {
-            this.$emit('delete', user);
+    // props: ['allowDelete'],
+    props: {
+        allowDelete: {
+            default: false,
+            type: Boolean,
+        },
+        users: {
+            default: [],
+            type: Array,
+        },
+    },
+    methods: {
+        deleteUser: function(user: UserDto) {
+            if (this.allowDelete) {
+                this.$emit('delete', user);
+            }
+        },
+        handleClick: function(user: UserDto) {
+            this.$emit('clicked', user);
         }
-    }
-}
+    },
+});

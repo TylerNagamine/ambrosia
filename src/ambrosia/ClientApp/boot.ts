@@ -1,10 +1,11 @@
 import './css/site.css';
-import 'bootstrap';
+import Element from 'element-ui';
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 import store from './store';
 
+Vue.use(Element);
 Vue.use(VueRouter);
 
 const routes = [
