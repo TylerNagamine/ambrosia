@@ -6,7 +6,7 @@
 
         <p>Current count: <strong>{{ currentcount }}</strong></p>
 
-        <button @click="incrementCounter">Increment</button>
+        <el-button type="primary" @click="incrementCounter">Increment</el-button>
     </div>
 </template>
 

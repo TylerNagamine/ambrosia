@@ -2,18 +2,18 @@
     <div>
         <h1>User management</h1>
 
-        <button class="btn btn-primary" @click="showModal = true">Add user</button>
+        <el-button type="primary" @click="showModal = true">Add user</el-button>
         <UserList :users="users" v-on:clicked="setSelectedUser" :allowDelete="canDelete" @delete="deleteUser" />
 
-        <div v-if="userSelected">
+        <el-col :span="12" v-if="userSelected">
             <UserDetail :user="selectedUser"></UserDetail>
 
             <UserEditor :initialModel="selectedUser" @submit="submit" />
-        </div>
+        </el-col>
 
-        <div v-if="showModal" @close="showModal = false">
+        <el-col v-if="showModal" @close="showModal = false" :span="12">
             <UserEditor @submit="addUser" :title="'Add User'" />
-        </div>
+        </el-col>
     </div>
 </template>
 
