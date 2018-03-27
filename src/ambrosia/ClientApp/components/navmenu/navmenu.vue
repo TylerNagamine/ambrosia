@@ -1,6 +1,37 @@
 <template>
-    <div class="main-nav">
-        <div class="navbar navbar-inverse">
+    <el-row>
+        <el-col :span="24" class="nav">
+            <h5>Default colors</h5>
+            <el-menu
+                :default-active="activeLink"
+                :router="true"
+                class="el-menu-vertical-demo"
+            >
+                <template v-for="rule in $router.options.routes">
+                    <el-menu-item :index="rule.path" :key="rule.path">
+                        <i :class="rule.icon"></i>
+                        {{ rule.title }}
+                    </el-menu-item>
+                </template>
+                <!-- <template slot="title">
+                    <i class="el-icon-location"></i>
+                    <span>Navigator One</span>
+                </template>
+                <el-menu-item index="1">
+                    <i class="el-icon-menu"></i>
+                    <span>Navigator Two</span>
+                </el-menu-item>
+                <el-menu-item index="2" disabled>
+                    <i class="el-icon-document"></i>
+                    <span>Navigator Three</span>
+                </el-menu-item>
+                <el-menu-item index="3">
+                    <i class="el-icon-setting"></i>
+                    <span>Navigator Four</span>
+                </el-menu-item> -->
+            </el-menu>
+        </el-col>
+        <!-- <div class="navbar navbar-inverse">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -40,8 +71,10 @@
                     </li>
                 </ul>
             </div>
-        </div>
-    </div>
+        </div> -->
+    </el-row>
 </template>
 
-<style src="./navmenu.css" />
+<script src="./navmenu.ts"></script>
+
+<style src="./navmenu.css" scoped />

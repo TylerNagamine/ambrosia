@@ -1,14 +1,21 @@
 <template>
-    <div id='app-root' class="container-fluid">
-        <div class="row">
-            <div class="col-sm-3">
+    <div id='app-root'>
+        <el-row>
+            <el-col :span="4" class="container">
                 <nav-menu />
-            </div>
-            <div class="col-sm-9">
+            </el-col>
+            <el-col :span="20" class="container">
                 <router-view></router-view>
-            </div>
-        </div>
+            </el-col>
+        </el-row>
     </div>
 </template>
 
 <script src="./app.ts"></script>
+
+<style scoped>
+.container {
+    padding-top: 0;
+}
+</style>
+
