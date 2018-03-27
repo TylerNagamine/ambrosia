@@ -25,22 +25,6 @@
                 prop="dateFormatted"
                 label="Summary">
             </el-table-column>
-            <!-- <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Temp. (C)</th>
-                    <th>Temp. (F)</th>
-                    <th>Summary</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="(item, $index) in forecasts" v-bind:key="$index">
-                    <td>{{ item.dateFormatted }}</td>
-                    <td>{{ item.temperatureC }}</td>
-                    <td>{{ item.temperatureF }}</td>
-                    <td>{{ item.summary }}</td>
-                </tr>
-            </tbody> -->
         </el-table>
 
         <p v-else><em>Loading...</em></p>
