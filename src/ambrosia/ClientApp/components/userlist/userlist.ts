@@ -4,17 +4,7 @@ import { UserDto } from '../../models/Ambrosia';
 
 export default Vue.extend({
     name: 'user-list',
-    // props: ['allowDelete'],
-    props: {
-        allowDelete: {
-            default: false,
-            type: Boolean,
-        },
-        users: {
-            default: [],
-            type: Array,
-        },
-    },
+    props: ['allowDelete', 'users'],
     methods: {
         deleteUser: function(user: UserDto) {
             if (this.allowDelete) {
@@ -22,7 +12,7 @@ export default Vue.extend({
             }
         },
         handleClick: function(user: UserDto) {
-            this.$emit('clicked', user);
+             this.$emit('clicked', user);
         }
     },
 });

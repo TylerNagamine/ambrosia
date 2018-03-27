@@ -2,7 +2,16 @@ import Vue from 'vue';
 import { UserAction, UserState } from '../../store/user';
 import { UserDto } from '../../models/Ambrosia';
 
+import UserDetail from '../userdetail/userdetail.vue';
+import UserEditor from '../usereditor/usereditor.vue';
+import UserList from '../userlist/userlist.vue';
+
 export default Vue.extend({
+    components: {
+        UserDetail,
+        UserEditor,
+        UserList
+    },
     data() {
         return {
             showModal: false,
@@ -10,6 +19,9 @@ export default Vue.extend({
         };
     },
     computed: {
+        canDelete: function() {
+            return true;
+        },
         users: function() {
             return this.$appStore.state.user.users;
         },
@@ -22,6 +34,9 @@ export default Vue.extend({
             await this.$appStore.dispatch(UserAction.AddUser, model);
 
             this.showModal = false;
+        },
+        deleteUser: async function(user: UserDto) {
+            await this.$appStore.dispatch(UserAction.DeleteUser);
         },
         setSelectedUser: function(user: UserDto) {
             this.selectedUser = user;

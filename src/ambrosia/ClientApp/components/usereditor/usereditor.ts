@@ -22,7 +22,7 @@ export default Vue.extend({
     },
     props: {
         initialModal: {
-            default: {},
+            default: () => {},
             type: Object,
         },
         title: {

@@ -26,7 +26,7 @@ export default Vue.extend({
             },
         },
         formState: function() {
-            return this.$appStore.state;
+            return this.$appStore.state.recipeForm;
         },
         prepTime: {
             get: function(): string {
@@ -62,6 +62,9 @@ export default Vue.extend({
         },
     },
     methods: {
+        addStep() {
+            this.$appStore.commit(RecipeFormMutation.AddStep);
+        },
         handleEditStepInput(index: number, e: any) {
             const model: IndexedAction<string> = {
                 index,
